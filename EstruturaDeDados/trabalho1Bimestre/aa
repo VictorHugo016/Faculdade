@@ -1,0 +1,25 @@
+function quickSort(vet, inicio = 0, fim = vet.length - 1) {
+    if (inicio < fim) {
+      const pivo = vet[fim];
+      let i = inicio - 1;
+  
+      for (let j = inicio; j < fim; j++) {
+        if (vet[j] < pivo) {
+          i++;
+          const temp = vet[i];
+          vet[i] = vet[j];
+          vet[j] = temp;
+        }
+      }
+  
+      const temp = vet[i + 1];
+      vet[i + 1] = vet[fim];
+      vet[fim] = temp;
+  
+      const pi = i + 1;
+  
+      quickSort(vet, inicio, pi - 1);
+      quickSort(vet, pi + 1, fim);
+    }
+  }
+  
